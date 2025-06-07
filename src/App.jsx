@@ -1,13 +1,21 @@
 import './App.css'
-import ToDoInput from './components/ToDoInput/ToDoInput'
-import ToDoTable from './components/ToDoTable/ToDoTable'
+import LoginPage from './pages/LoginPage'
+import ToDoPage from './pages/ToDoPage'
+
+import { Route, Routes } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 function App() {
 
+  const { isAuth } = useSelector(state => state.auth)
+
   return (
     <>
-    <ToDoInput/>
-    <ToDoTable/>
+    <Routes>
+      {!isAuth && (<Route path='*' element={<LoginPage/>}/>)}
+      {!!isAuth && (<Route path='/todo' element={<ToDoPage/>}/>)}
+      
+    </Routes>
     </>
   )
 }
