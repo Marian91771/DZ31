@@ -29,8 +29,19 @@ export default function ToDoTable() {
                         {tasks.map(task => (
                             <li key={task.id} className="list-group-item d-flex justify-content-between align-items-center">
                                 <div>
-                                    <input className="form-check-input me-1" type="checkbox" onClick={() => handleTick(task.id)}/>
-                                    <label className="form-check-label" htmlFor="firstCheckboxStretched">{task.task}</label>
+                                    <input
+                                        id={`checkbox-${task.id}`}
+                                        className="form-check-input me-1"
+                                        type="checkbox"
+                                        onClick={() => handleTick(task.id)}
+                                    />
+                                    <label
+                                        className="form-check-label"
+                                        htmlFor={`checkbox-${task.id}`}
+                                    >
+                                        {task.task}
+                                    </label>
+
                                 </div>
                                 <div className="btn-group" role="group">
                                     <button type="button" className="btn btn-primary" onClick={() => handleEdit(task)}>Edit</button>

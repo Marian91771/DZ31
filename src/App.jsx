@@ -13,7 +13,7 @@ function App() {
     <>
     <Routes>
       {!isAuth && (<Route path='*' element={<LoginPage/>}/>)}
-      {!!isAuth && (<Route path='/todo' element={<ToDoPage/>}/>)}
+      {!!isAuth && (<Route path='/' element={<ToDoPage/>}/>)}
       
     </Routes>
     </>
